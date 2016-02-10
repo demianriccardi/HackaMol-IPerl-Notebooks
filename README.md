@@ -20,7 +20,7 @@ Chem 452 has a purely theoretical and computational lab component. The main goal
 
 ## Mastery Goal
 
-If by the end of this lab, the student is able to carry out the same computational work in a JupyterHub Notebook as on a local computer he or she is on the path to mastery.  
+By the end of this lab, if the student is able to carry out the same computational work in a JupyterHub Notebook as on a local computer without notebooks, he or she is on the path to mastery.  
 
 
 
