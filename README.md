@@ -4,7 +4,7 @@ This repository contains example Jupyter Notebooks and Exercises in support of t
 
 ## Notebooks
 
-The Earlham Computer Science department has configured a JupyterHub run on a local research cluster (Thank you CS and Michael Lerner), for which each student has a username and password.  The IPerl kernel and HackaMol libraries have been installed on the cluster for use via the JupyterHub login.  Thus, the example notebooks can be cloned through a JupyterHub terminal and then loaded directly.. or by simple copy and past of notebook code cells. 
+The Earlham Computer Science department has configured a JupyterHub run on a local research cluster (Thank you CS and Michael Lerner), for which each student has a username and password.  The IPerl kernel and HackaMol libraries have been installed on the cluster for use via a [JupyterHub](https://jupyter.cluster.earlham.edu) login.  Thus, the example notebooks can be cloned through a JupyterHub terminal and then loaded directly.. or by simple copy and past of notebook code cells. 
 
 ## Exercises
 
