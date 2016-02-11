@@ -76,5 +76,8 @@ The main assumption for this exercise is that you can open a terminal window. Wh
   34. rm quick.tar
   35. rm back.gz
   36. Have you cleaned up everything?
-   
-
+  37. use the history command to dump all the shell history to screen.  Save if you want.
+  
+## TIPS
+  1. using the up arrow will allow you to scroll up through the history at the command line.  This is useful if you want to rerun a command.
+  2. use the tab button to autocomplete 
