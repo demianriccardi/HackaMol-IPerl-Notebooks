@@ -13,16 +13,22 @@ The main assumption for this exercise is that you can open a terminal window. Wh
 ## List of shell commands you will use in this exercise 
 
 ### Basic commands
-* man   | Manual description for command
-* pwd   | path to working directory
-* ls    | list contents
-* cd    | change directory
-* mkdir | make directory
-* touch | create an empty file or adjust the timestamp 
-* cp    | copy
-* mv    | move a file can be moved to a new name in the same directory
-* cat   | dump file(s) contents to screen
-* rm    | remove... be careful with this one.  
+* man    | Manual description for command
+* pwd    | path to working directory
+* ls     | list contents
+* cd     | change directory
+* mkdir  | make directory
+* touch  | create an empty file or adjust the timestamp 
+* cp     | copy
+* mv     | move a file can be moved to a new name in the same directory
+* cat    | dump file(s) contents to screen
+* rm     | remove... be careful with this one.
+* tar    | creates archives
+* gzip   | zips files/archived and makes them smaller
+* gunzip |
+* scp    | secure copy files between computers!
+* ssh    | login to other computers on the network (as long as you have a username and password)! 
+
 ### Fun stuff
 * echo  | print to standard output
 * grep  | filter lines of file to those that match; ex. grep Earlham earlham.txt
@@ -41,9 +47,30 @@ The main assumption for this exercise is that you can open a terminal window. Wh
   9. Make a series of directories on the Desktop:  Foo/Bar/Baz
   10. Touch the files Foo/foo.txt  Foo/Bar/bar.txt and Foo/Bar/Baz/baz.txt
   11. remove the baz.txt file and verify that it is gone (rm ~/Desktop/Foo/Bar/Baz/baz.txt)
-  12.  
-
-If you change your directory (cd) to the Desktop directory, where are you now.
-  2. pwd. where are you   
-     
+  12. remove the Baz directory (rm -r ~/Desktop/Foo/Bar/Baz)
+  13. remove the Foo directory; what happened the Bar directory, foo.txt, and bar.txt?
+  14. repeat 9.  (check out the -p option for the mkdir command) 
+  15. Navigate with a browser to this address: http://www.rcsb.org/pdb/files/2CBA.pdb
+      use curl to dump that file to the screen!
+  16. use curl to dump the file into a file name 2cba.pdb in the ~/Desktop/Foo/Bar/Baz directory (you can use the '>' to redirect output).
+  17. filter (grep) all the lines the C-alpha lines (CA) of the 2cba.pdb using the grep command (grep CA ~/Desktop/Foo/Bar/Baz/2cba.pdb)
+  18. grep all the lines matching both ATOM and HIS by piping a one grep into another grep (grep ATOM ~/Desktop/Foo/Bar/Baz/2cba.pdb | grep HIS)
+  19. use 17 and 18 to create two files 
+    * 2cba\_ca.pdb containing only CA atoms
+    * 2cba\_HIS.pdb containing only Hist atoms 
+  20. grep out the water molecules using the HOH identifier.  cat the files 2cba\_ca.pdb, 2cba\_HIS.pdb, and 2cba\_HOH.pdb into a new file: 2cba\_CA\_HIS\_HOH.pdb
+  21. tar up the directory (tar -cvf quick.tar ~/Desktop/Foo)
+  22. ls -l quick.tar and notice the size of the tarred archive
+  23. zip it up!  gzip quick.tar
+  24. ls -l quick.tar.gz and notice the size.  (size of files and directories can be measured using the du command)
+  25. scp quick.tar.gz your\_username@cluster.earlham.edu:
+  26. cp quick.tar.gz back.gz
+  27. rm quick.tar.gz
+  27. ls quick.tar.gz
+  28. scp your\_username@cluster.earlham.edu:quick.tar.gz .
+  29. remove the ~/Desktop/Foo directory
+  30. tar -xvf quick.tar
+  31. find the path to the VMD 1.9.2 application 
+  32. /Applications/VMD\ 1.9.2.app/Contents/vmd/vmd\_MACOSXX86 Desktop/Foo/Bar/Baz/2cba\_CA\_HIS\_HOH.pdb
+   
 
