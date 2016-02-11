@@ -72,5 +72,9 @@ The main assumption for this exercise is that you can open a terminal window. Wh
   30. tar -xvf quick.tar
   31. find the path to the VMD 1.9.2 application 
   32. /Applications/VMD\ 1.9.2.app/Contents/vmd/vmd\_MACOSXX86 Desktop/Foo/Bar/Baz/2cba\_CA\_HIS\_HOH.pdb
+  33. rm -r ~/Desktop/Foo
+  34. rm quick.tar
+  35. rm back.gz
+  36. Have you cleaned up everything?
    
 
