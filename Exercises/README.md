@@ -7,4 +7,5 @@ List of exercises
   2. E1_git
   3. E2_vim
   4. E3_vmd
-  5. E4_running a script that corresponds to a jupyter notebook.
+  5. E4_HackaMol_0
+  6. E4_running a script that corresponds to a jupyter notebook.
