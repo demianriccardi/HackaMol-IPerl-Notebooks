@@ -1,6 +1,11 @@
-##15 minute exercise: Efficient creation and slicing up of text files using the Vi editor 
+##15 minute exercise: slicing and dicing text files using the Vi editor 
 
 ##Description
+vi is a text editor that has a lot of features.  It is a little weird at first, but the weirdness pay dividends in timesavings later.  This exercise will get you started using vi to create and edit files.
 
-##Repository Description
-This repository contains example jupyter notebooks and exercises in support of the laboratory component of the class.
+## Commands
+vi       
+mkdir
+cd
+
+
