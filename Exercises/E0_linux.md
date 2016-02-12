@@ -36,7 +36,7 @@ The main assumption for this exercise is that you can open a terminal window. Wh
 
 ## The exercise
 
-  1. Access the documentation (aka "man pages") for each of the above commands, and make a note of what each does. "man" is short for manual. For example, typing 'man man' will display the documentation for the "man" command.   Exit with the "q" key. 
+  1. Access the documentation (aka "man pages") for some of the above commands. This is the way to find the details of how each command does. "man" is short for manual. For example, typing 'man man' will display the documentation for the "man" command.   Exit with the "q" key. 
   2. Where are you on the filesystem by default?  
   3. Change your directory to the Desktop and compare your filesystem location to the default found in 2.
   4. List all of the files on the Desktop.  Does to list look similar to that seen if you look at the Desktop with your eyes using the operating system?
