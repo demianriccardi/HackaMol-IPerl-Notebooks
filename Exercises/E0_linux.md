@@ -53,9 +53,9 @@ The main assumption for this exercise is that you can open a terminal window. Wh
   15. Navigate with a browser to this address: http://www.rcsb.org/pdb/files/2CBA.pdb
       use curl to dump that file to the screen!
   16. use curl to dump the file into a file name 2cba.pdb in the ~/Desktop/Foo/Bar/Baz directory (you can use the '>' to redirect output).
-  17. filter (grep) all the lines the C-alpha lines (CA) of the 2cba.pdb using the grep command (grep CA ~/Desktop/Foo/Bar/Baz/2cba.pdb)
+  17. filter (grep) all the lines the C-alpha lines (CA) of the 2cba.pdb using the grep command (grep CA ~/Desktop/Foo/Bar/Baz/2cba.pdb).
   18. grep all the lines matching both ATOM and HIS by piping a one grep into another grep (grep ATOM ~/Desktop/Foo/Bar/Baz/2cba.pdb | grep HIS)
-  19. use 17 and 18 to create two files 
+  19. Create the files listed bellow by putting the output from the above commands into those files, you can use the '>' redirect here as well  
     * 2cba\_ca.pdb containing only CA atoms
     * 2cba\_HIS.pdb containing only Hist atoms 
   20. grep out the water molecules using the HOH identifier.  cat the files 2cba\_ca.pdb, 2cba\_HIS.pdb, and 2cba\_HOH.pdb into a new file: 2cba\_CA\_HIS\_HOH.pdb
