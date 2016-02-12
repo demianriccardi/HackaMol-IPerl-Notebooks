@@ -1,4 +1,4 @@
-##15 minute exercise: using beginning git and GitHub to maintain and share your work. 
+##15 minute exercise: begin using git and GitHub to maintain and share your work. 
 
 ##Description
 Git and GitHub are different things.  
