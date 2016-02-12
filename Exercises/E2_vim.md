@@ -10,7 +10,8 @@ vi is a text editor that has a lot of features.  It is a little weird at first, 
   * cat
   * wc -l
 
-## Vi modes:  when you open a file for editing, your intuition is to be able to "get writing". For vi, this is the "insert mode" and in order to get writing, you have to switch to insert mode.  We are getting ahead of ourselves.  There are three modes in vi: 
+## Vi modes:  
+When you open a file for editing, your intuition is to be able to "get writing". For vi, this is the "insert mode" and in order to get writing, you have to switch to insert mode.  We are getting ahead of ourselves.  There are three modes in vi: 
   1. Normal mode: this is the default mode. When you `vi some.txt` you will load the file in this mode.
   2. Insert mode: use the "i" key to enter insert mode.  Type until your heart is content.  Use the escape key to get back into Normal mode.
   3. Visual mode: use the "v" key to enter visual mode. You can do magical highlighting, copying, and pasting in visual mode. Use the escape key to get back into Normal mode.
