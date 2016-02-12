@@ -4,7 +4,7 @@ These exercises are designed to take less than 15 minutes (perhaps much less) fo
 
 List of exercises
   1. E0_linux       ... ready to go!
-  2. E1_git         ... ready to go!  
+  2. E1_gitHubgit_0 ... ready to go!  
   3. E2_vim         ... not ready
   4. E3_vmd         ... not ready
   5. E4_HackaMol_0  ... not ready
