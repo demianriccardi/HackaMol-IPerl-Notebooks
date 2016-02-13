@@ -60,7 +60,8 @@ do this in two ways:
      * `cd ~/This_is_Heaven_ON_Earth`
      * `cd /`
      * `cd -`
-  5. Each time you carried out the above commands, you were able to display the path to the working directory with `pwd`.  You should now be comfortable with `cd`, `pwd`, and you should have some instinct to what the "path" is. 
+Quiz: Each time you carried out the above commands, you were able to display the path to the working directory with `pwd`.  You should now be comfortable with `cd`, `pwd`, and you should have some instinct to what the "path" is.  You can chain two commands together on the commandline using the semicolon as a separator. For example `cd ; cd Desktop; cd ..`, will take you to your home directory, then hop you into the Desktop directory, and then back again into your home directory.  Predict the result of pwd for the following command: `cd; cd . ; cd .. ; cd .. ; cd - ; cd ../.. ; cd ~/..`  
+
   6. What is in your path when you open a terminal window?   
   6. List all of the files on the Desktop. [`ls`]  Does to list look similar to that seen if you look at the Desktop with your eyes using the operating system? List all of the files again with the -l option (see man pages for description). [`ls -l`]
   5. Change back to your default working directory. [`cd -`, or `cd ..`, or `cd`]
