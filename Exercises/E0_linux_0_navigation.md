@@ -22,29 +22,48 @@ do this in two ways:
 ## List of shell commands you will use in this exercise 
 
 ### Basic commands
-* man    => Manual description for command
-* pwd    => path to working directory
-* ls     => list contents
-* cd     => change directory  
-* touch  => no touching! :) you will use touch to adjust the timestamp on a file.
-* cat    => dump file(s) contents to screen
-* ssh    => login to other computers on the network (as long as you have a username and password)! 
+* `man`    => Manual description for command
+* `pwd`    => path to working directory
+* `cd`     => change directory  
+* `ls`     => list contents
+* `env`    => print environment
+* `touch`  => no touching! :) you will use touch to adjust the timestamp on a file.
+* `cat`    => dump file(s) contents to screen
+* `ssh`    => login to other computers on the network (as long as you have a username and password)! 
 
 ### Some fun commands with STDOUT (standard output)
-* echo  => print to standard output
-* grep  => filter lines of file to those that match; ex. grep Earlham earlham.txt
-* sed   => dump files with substitutions!
-* some cool perl oneliners that can do grep and sed stuff.
-* curl  => grabs files from the internet.. no webbrowser needed!
+* `echo`  => print to standard output
+* `grep`  => filter lines of file to those that match; ex. grep Earlham earlham.txt
+* `sed`   => dump files with substitutions!
+* `curl`  => grabs files from the internet.. no webbrowser needed!
 * piping STDOUT using the vertical bar "|" 
+* some cool perl oneliners that can do grep and sed stuff.
 
 
 ## The exercise
 
-  1. Access the documentation (aka "man pages") for some of the above commands. This is the way to find the details of how each command does. "man" is short for manual. For example, typing 'man man' will display the documentation for the "man" command.   Exit with the "q" key. 
-  2. Where are you on the filesystem by default?  
-  3. Change your directory to the Desktop and compare your filesystem location to the default found in 2.
-  4. List all of the files on the Desktop.  Does to list look similar to that seen if you look at the Desktop with your eyes using the operating system?
+  1. Open a terminal window and determine the path to your working directory.  [`pwd`]
+  2. Access the documentation (a.k.a. "man pages") for some of the above commands. This is the way to find the details of how each command does. "man" is short for manual. For example, typing `man man` will display the documentation for the "man" command.   Exit documentation with the "q" key. 
+  3. Change your working directory to the Desktop and compare your filesystem location to the default found in 1. [`cd Desktop ; pwd`]
+  4. Let's play with the `cd` command; use the `pwd` command to see the effect of the following on the path to your working directory: 
+     * `cd .`
+     * `cd ..`
+     * `cd -`
+     * `cd ~/Desktop` 
+     * `cd ~` 
+     * `cd -`
+     * `cd ../..`
+     * `cd ..` 
+     * `cd ~/`  ...  what happens to `~` when you run the cd command with an argument containing it at the beginning?
+     * `cd This_is_Heaven_ON_Earth`
+     * `cd /This_is_Heaven_ON_Earth`
+     * `cd ~/This_is_Heaven_ON_Earth`
+     * `cd /`
+     * `cd -`
+  5. Each time you carried out the above commands, you were able to display the path to the working directory with `pwd`.  You should now be comfortable with `cd`, `pwd`, and you should have some instinct to what the "path" is. 
+  6. What is in your path when you open a terminal window?   
+  6. List all of the files on the Desktop. [`ls`]  Does to list look similar to that seen if you look at the Desktop with your eyes using the operating system? List all of the files again with the -l option (see man pages for description). [`ls -l`]
+  5. Change back to your default working directory. [`cd -`, or `cd ..`, or `cd`]
  ...
   15. Navigate with a browser to this address: http://www.rcsb.org/pdb/files/2CBA.pdb
       use curl to dump that file to the screen!
