@@ -40,7 +40,7 @@ do this in two ways:
 * some cool perl oneliners that can do grep and sed stuff.
 
 
-## The exercise
+### exercise `[man, cd, pwd]`
 
   1. Open a terminal window and determine the path to your working directory.  [`pwd`]
   2. Access the documentation (a.k.a. "man pages") for some of the above commands. This is the way to find the details of how each command does. "man" is short for manual. For example, typing `man man` will display the documentation for the "man" command.   Exit documentation with the "q" key. 
@@ -60,12 +60,32 @@ do this in two ways:
      * `cd ~/This_is_Heaven_ON_Earth`
      * `cd /`
      * `cd -`
-Quiz: Each time you carried out the above commands, you were able to display the path to the working directory with `pwd`.  You should now be comfortable with `cd`, `pwd`, and you should have some instinct to what the "path" is.  You can chain two commands together on the commandline using the semicolon as a separator. For example `cd ; cd Desktop; cd ..`, will take you to your home directory, then hop you into the Desktop directory, and then back again into your home directory.  Predict the result of pwd for the following command: `cd; cd . ; cd .. ; cd .. ; cd - ; cd ../.. ; cd ~/..`  
+     
+Wach time you carried out the above commands, you were able to display the path to the working directory with `pwd`.  You should now be comfortable with `cd`, `pwd`, and you should have some instinct to what the "path" is.  "Your path" is the your location in the file system; a file's "path" is the location of the file on the filesystem.  For example, the path to the Terminal.app on OS X is `/Applications/Utilities/Terminal.app`.   
 
-  6. What is in your path when you open a terminal window?   
-  6. List all of the files on the Desktop. [`ls`]  Does to list look similar to that seen if you look at the Desktop with your eyes using the operating system? List all of the files again with the -l option (see man pages for description). [`ls -l`]
-  5. Change back to your default working directory. [`cd -`, or `cd ..`, or `cd`]
- ...
+Quiz. You can chain two commands together on the commandline using the semicolon as a separator. For example `cd ; cd Desktop; cd ..`, will take you to your home directory, then hop you into the Desktop directory, and then back again into your home directory.  Predict the result of pwd for the following commands:  
+  * `cd; cd . ; cd .. ; cd .. ; cd -` 
+  * `cd ~/..`  
+
+### exercise `["the tab key", ls, and "wildcards *"]`
+  1. Open a new terminal window and display the contents of your home directory. [`ls`]
+  2. The Tab key autocompletes with items in the your path.  Play around with hitting the tab key:
+      * Hitting tab twice on an empty commandline will give you the option of seeing a schmorgesborg of commands.  In this schmorgesborg are the commands that you are using here [e.g. `ls cd pwd .. etc` ].  It should ask to type y or n.  Typing y will allow you to scroll through the commands using the `more` command.
+      * type `ls ` but don't hit enter, hit tab two times instead.  Here, tab doesn't display the schmorgesborg of commands because you already chose one (`ls`); instead, it give you a display of all the files and directories.  Find a directory you like from the display and type the first letter.  For example, `ls L<TAB>` should show list you any files/directories that start with the letter `L`.
+      * use ls to look around your file system without using cd.
+  3. As you look around your file system using `ls` and the tab key, play around with wild cards.
+      * `ls L*` lists anything starting in `L`
+      * `ls *.txt` lists anything ending in .txt
+      * `ls  */*.txt` lists all .txt files within directories in your working directory!
+      * `ls */*/*.txt` lists all .txt files within the first directory within all directories in you working directory.
+  4.  List all of the files on the Desktop. [`ls`]  Does to list look similar to that seen if you look at the Desktop with your eyes using the operating system? List all of the files again with the -l option (see man pages for description). [`ls -l`] 
+  
+Quiz. 
+  * What is in your path when you open a terminal window?
+  * What do you expect the result for `ls /`?
+  * What do you expect the result for `ls /*`?
+
+### Exercise: Passive interaction with information contained on the File System and other file systems. `[curl, grep, sed, and ssh]`
   15. Navigate with a browser to this address: http://www.rcsb.org/pdb/files/2CBA.pdb
       use curl to dump that file to the screen!
   17. pipe the curl STDOUT into grep and filter all the lines the C-alpha lines (CA) of the 2cba.pdb (`curl http://www.rcsb.org/pdb/files/2CBA.pdb` | grep "ATOM" 
