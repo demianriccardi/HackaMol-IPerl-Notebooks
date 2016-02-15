@@ -26,9 +26,10 @@ do this in two ways:
 * `pwd`    => path to working directory
 * `cd`     => change directory  
 * `ls`     => list contents
+* `less`   => similar to command `more`, allows you to page through the contents of a file in read-only mode. In contrast to `more`, which allows you to page forward from start to finish, `less` allows you to page back and forth.
+* `cat`    => dump file(s) contents to screen.  whereas `less` gives you a page by page read, `cat` just dumps everything. I am greedy, I often use `cat` and then page in the terminal with the mouse.
 * `env`    => print environment
 * `touch`  => no touching! :) you will use touch to adjust the timestamp on a file.
-* `cat`    => dump file(s) contents to screen
 * `ssh`    => login to other computers on the network (as long as you have a username and password)! 
 
 ### Some fun commands with STDOUT (standard output)
@@ -82,18 +83,27 @@ Quiz. You can chain two commands together on the commandline using the semicolon
   
 Quiz. 
   * What is in your path when you open a terminal window?
-  * What do you expect the result for `ls /`?
-  * What do you expect the result for `ls /*`?
+  * What do you expect for `ls /`?
+  * What do you expect for `ls /*`?
+  * What do you expect for `ls /*/`
 
-### Exercise: Passive interaction with information contained on the File System and other file systems. `[curl, grep, sed, and ssh]`
-  15. Navigate with a browser to this address: http://www.rcsb.org/pdb/files/2CBA.pdb
-      use curl to dump that file to the screen!
-  17. pipe the curl STDOUT into grep and filter all the lines the C-alpha lines (CA) of the 2cba.pdb (`curl http://www.rcsb.org/pdb/files/2CBA.pdb` | grep "ATOM" 
-   grep "CA") play around with multiple greps to get some practice filtering.
-  18. grep all the lines matching both ATOM and HIS by piping a one grep into another grep (grep ATOM ~/Desktop/Foo/Bar/Baz/2cba.pdb | grep HIS)
-  ...
-  37. use the history command to dump all the shell history to screen.  Save if you want.
-  
+### Exercise: Passive interaction with information contained on the File System and other file systems. `[cat, less, curl, grep, sed, and ssh]`
+  1. use `ls` to find a file that you would like to investigate. [`ls some.file`] where some.file is any old file you see.
+  2. press the up arrow and convert `ls some.file` to `less some.file` to open it.
+  3. press q to escape, and then dump the same file with `cat some.file`.
+  4. touch a file with whatever name you would like, `touch some.file`.
+  5. use `ls` to see that you touched a file.  Use `cat some.file` to see that it is indeed empty.
+  6. use `ls -l some.file` to get more information on the file.
+  7. wait 1 minute and the touch the file again, `touch some.file`.  Use `ls -l` and note the change.
+
+Since I don't know what interesting files you may be looking at, let us pull one from the internet and play with it!  
+  4. use `curl` to pull a file (Protein Databank file) from the internet and dump it to the terminal screen: `curl http://www.rcsb.org/pdb/files/2CBA.pdb`
+  5. use a web browser to go to the same site and see that it matches.
+
+If this weren't a passive exercise, you could save internet bandwidth by saving the file with the following command: `curl http://www.rcsb.org/pdb/files/2CBA.pdb > 2CBA.pdb`. This would redirect the STDOUT you saw in 4 into a file using the `>` for output redirection. Thus, with the file, you could avoid the "expensive" `curl` by using `cat 2CBA.pdb`... simple as that. 
+   
+  6. Filter the output from `curl` to print only lines containing both ATOM and CA: `curl http://www.rcsb.org/pdb/files/2CBA.pdb  | grep "ATOM" | grep "CA"`.  If you had the file, you could `grep` directly, `grep "ATOM" 2CBA.pdb | grep "CA" 2CBA.pdb` 
+
 ## TIPS for mor advanced use... 
   1. using the up arrow will allow you to scroll up through the history at the command line.  This is useful if you want to rerun a command.
   2. use the tab button to autocomplete
