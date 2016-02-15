@@ -105,6 +105,7 @@ If this weren't a passive exercise, you could save internet bandwidth by saving 
   6. Filter the output from `curl` to print only lines containing both ATOM and CA: `curl http://www.rcsb.org/pdb/files/2CBA.pdb  | grep "ATOM" | grep "CA"`.  If you had the file, you could `grep` directly, `grep "ATOM" 2CBA.pdb | grep "CA" 2CBA.pdb` 
 
   As long as you have a username and password on another accessible machine (e.g. cluster.earlham.edu), you can use a secure shell login to get into that computer!!  
-  1. Find your username and password and then login to cluster.earlham.edu from your terminal: `ssh username@cluster.earlham.edu`
-  2. Use `ls` and `cd` to walk around the File System; you should notice that it is different... it is a different computer!! egatz. 
+  1. Find your username and password and then login to cluster.earlham.edu from your terminal: `ssh username@cluster.earlham.edu` 
+  2. Use `ls` and `cd` to walk around the File System on this machine; you should notice that it is different... it is a different computer!! There will likely be a different name on your commandline to remind you that this is a different computer. 
+  3. Use a web-browser to log into the [Earlham JupyterHub] (https://jupyter.cluster.earlham.edu).  Use the "new" button toward the upper right to open a terminal.  You now have a terminal through the JupyterHub!  Are you on the same computer as you logged in via step 1? ... (hint. NO!).
   
