@@ -107,9 +107,4 @@ If this weren't a passive exercise, you could save internet bandwidth by saving 
   As long as you have a username and password on another accessible machine (e.g. cluster.earlham.edu), you can use a secure shell login to get into that computer!!  
   1. Find your username and password and then login to cluster.earlham.edu from your terminal: `ssh username@cluster.earlham.edu`
   2. Use `ls` and `cd` to walk around the File System; you should notice that it is different... it is a different computer!! egatz. 
-
-## TIPS for mor advanced use... 
-  1. using the up arrow will allow you to scroll up through the history at the command line.  This is useful if you want to rerun a command.
-  2. use the tab button to autocomplete
-  3. you can separate multipe actions with a semicolon `cd $path; cd - ; cd $path; cd -` 
   
