@@ -1,7 +1,7 @@
 # Navigating the File System within the shell environment.  Look, but don't touch. 
 
 ## Exercise Description
-In this exercise you will walk around your directory tree and take in the sights. Almost all activities in this exercise will be passive. With on exception (see if you can figure out the source of this "exception"), you will create no new "permanent" information.  You will navigate the file system and interact with files using standard output to the terminal, screen (STDOUT).  STDOUT disappears when you close the terminal window or clear your screen (command-K on OS X). You don't need to do this exercise if you:
+In this exercise you will walk around your directory tree and take in the sights. Almost all activities in this exercise will be passive. With two exceptions (see if you can figure out the source of these two "exception"), you will create no new "permanent" information.  You will navigate the file system and interact with files using standard output to the terminal, screen (STDOUT).  STDOUT disappears when you close the terminal window or clear your screen (command-K on OS X). You don't need to do this exercise if you:
   1. fully understand what a file system is.
   2. fully understand what a path is.
   3. are able to navigate the filesystem with ease.
