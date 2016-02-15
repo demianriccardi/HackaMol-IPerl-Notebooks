@@ -28,14 +28,14 @@ do this in two ways:
 * `ls`     => list contents
 * `less`   => similar to command `more`, allows you to page through the contents of a file in read-only mode. In contrast to `more`, which allows you to page forward from start to finish, `less` allows you to page back and forth.
 * `cat`    => dump file(s) contents to screen.  whereas `less` gives you a page by page read, `cat` just dumps everything. I am greedy, I often use `cat` and then page in the terminal with the mouse.
-* `env`    => print environment
+* `env`    => prints your environment!  this information helps you know where all your commands are coming and some other stuff.  Currently not used in this exercise.
 * `touch`  => no touching! :) you will use touch to adjust the timestamp on a file.
 * `ssh`    => login to other computers on the network (as long as you have a username and password)! 
 
 ### Some fun commands with STDOUT (standard output)
 * `echo`  => print to standard output
 * `grep`  => filter lines of file to those that match; ex. grep Earlham earlham.txt
-* `sed`   => dump files with substitutions!
+* `sed`   => dump files with substitutions!...  not used in the exercised below.  See if you can use `sed` after one of the `grep` commands below.
 * `curl`  => grabs files from the internet.. no webbrowser needed!
 * piping STDOUT using the vertical bar "|" 
 * some cool perl oneliners that can do grep and sed stuff.
@@ -68,7 +68,7 @@ Quiz. You can chain two commands together on the commandline using the semicolon
   * `cd; cd . ; cd .. ; cd .. ; cd -` 
   * `cd ~/..`  
 
-### exercise `["the tab key", ls, and "wildcards *"]`
+### Exercise `["the tab key", ls, and "wildcards *"]`
   1. Open a new terminal window and display the contents of your home directory. [`ls`]
   2. The Tab key autocompletes with items in the your path.  Play around with hitting the tab key:
       * Hitting tab twice on an empty commandline will give you the option of seeing a schmorgesborg of commands.  In this schmorgesborg are the commands that you are using here [e.g. `ls cd pwd .. etc` ].  It should ask to type y or n.  Typing y will allow you to scroll through the commands using the `more` command.
@@ -103,6 +103,10 @@ Since I don't know what interesting files you may be looking at, let us pull one
 If this weren't a passive exercise, you could save internet bandwidth by saving the file with the following command: `curl http://www.rcsb.org/pdb/files/2CBA.pdb > 2CBA.pdb`. This would redirect the STDOUT you saw in 4 into a file using the `>` for output redirection. Thus, with the file, you could avoid the "expensive" `curl` by using `cat 2CBA.pdb`... simple as that. 
    
   6. Filter the output from `curl` to print only lines containing both ATOM and CA: `curl http://www.rcsb.org/pdb/files/2CBA.pdb  | grep "ATOM" | grep "CA"`.  If you had the file, you could `grep` directly, `grep "ATOM" 2CBA.pdb | grep "CA" 2CBA.pdb` 
+
+  As long as you have a username and password on another accessible machine (e.g. cluster.earlham.edu), you can use a secure shell login to get into that computer!!  
+  1. Find your username and password and then login to cluster.earlham.edu from your terminal: `ssh username@cluster.earlham.edu`
+  2. Use `ls` and `cd` to walk around the File System; you should notice that it is different... it is a different computer!! egatz. 
 
 ## TIPS for mor advanced use... 
   1. using the up arrow will allow you to scroll up through the history at the command line.  This is useful if you want to rerun a command.
