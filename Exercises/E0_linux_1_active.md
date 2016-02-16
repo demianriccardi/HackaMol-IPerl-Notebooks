@@ -52,7 +52,7 @@ The main assumption for this exercise is that you can open a terminal window. Wh
 
 Quiz. Repeat 4-10 as quickly as you can.  See if you can get the creation of folders and files on one line.  Then `rm -r Foo` on the other.
 
-## Simulate a project. Create a new directory for work, pull down the 2cba structure and then grep out all the CA, HIS, and Water atoms.
+## Exercise. Simulate a project. Create a new directory for work, pull down the 2cba structure, and then use grep to extract all the CA, HIS, and Water atoms into a new file.
   1. Create a directory named CAII, which contains a README.md, and a subdirectory named structures. 
   2. Download the structure of carbonic anhydrase II and save it into the structures directory.  There are many ways to do this.  For example, you may download the file and then move it to the structures directory. 
     * `curl http://www.rcsb.org/pdb/files/2CBA.pdb > 2cba.pdb`
