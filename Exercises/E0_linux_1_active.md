@@ -52,7 +52,9 @@ The main assumption for this exercise is that you can open a terminal window. Wh
 
 Quiz. Repeat 4-10 as quickly as you can.  See if you can get the creation of folders and files on one line.  Then `rm -r Foo` on the other.
 
-## Exercise. Simulate a project. Create a new directory for work, pull down the 2cba structure, and then use grep to extract all the CA, HIS, and Water atoms into a new file.
+## Exercise. Simulate a project. 
+
+Create a new directory for work, pull down the 2cba structure, and then use grep to extract all the CA, HIS, and Water atoms into a new file.
 
   1. Create a directory named CAII, which contains a README.md, and a subdirectory named structures. 
   2. Download the structure of carbonic anhydrase II and save it into the structures directory.  There are many ways to do this.  For example, you may download the file and then move it to the structures directory. 
@@ -69,7 +71,9 @@ Quiz. Repeat 4-10 as quickly as you can.  See if you can get the creation of fol
   7. use the `cat` command to combine the two files into a new file `2cba\_ca\_his.pdb`.
   8. grep out the water molecules using the HOH identifier into a file, and merge that file with the `2cba\_ca_\his.pdb` created in 7.
 
-## Exercise. Create an archive and transfer it to another computer! If this were important work, you would add descriptions to the README file for future reference.  You will learn how to edit files in the vim exercise.  Let's pretend that this directory now has really useful information in it.
+## Exercise. Create an archive and transfer it to another computer! 
+
+If this were important work, you would add descriptions to the README file for future reference.  You will learn how to edit files in the vim exercise.  Let's pretend that this directory now has really useful information in it.
 
   1. use `tar` to create an archive [`tar -cvf caii.tar CAII`]  the `-c` option is for compress, `-v` is for visualize, and `-f` is for force.  
   2. you can now move that archive whereever you want!  let's move it to the cluster using a secure shell copy. [`scp caii.tar youruser@cluster.earlham.edu:`] Notice the : at the end.  This gives `scp` the clue that it needs to help you login and copy the file.  If you call scp without the : at the end, scp will copy your `caii.tar` into a file named `youruser@cluster.earlham.edu`!
