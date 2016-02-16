@@ -85,7 +85,10 @@ Quiz.
   * What is in your path when you open a terminal window?
   * What do you expect for `ls /`?
   * What do you expect for `ls /*`?
-  * What do you expect for `ls /*/`
+  * What do you expect for `ls /*/`?
+  * What would be returned with `ls *.*`?
+
+Hint. you can put wildcards anywhere you want!
 
 ### Exercise: Passive interaction with information contained on the File System and other file systems. `[cat, less, curl, grep, sed, and ssh]`
   1. use `ls` to find a file that you would like to investigate. [`ls some.file`] where some.file is any old file you see.
