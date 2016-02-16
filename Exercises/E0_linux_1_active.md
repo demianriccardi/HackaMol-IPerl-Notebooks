@@ -76,7 +76,7 @@ Create a new directory for work, pull down the 2cba structure, and then use grep
 If this were important work, you would add descriptions to the README file for future reference.  You will learn how to edit files in the vim exercise.  Let's pretend that this directory now has really useful information in it.
 
   1. use `tar` to create an archive [`tar -cvf caii.tar CAII`]  the `-c` option is for compress, `-v` is for visualize, and `-f` is for force.  
-  2. you can now move that archive whereever you want!  let's move it to the cluster using a secure shell copy. [`scp caii.tar youruser@cluster.earlham.edu:`] Notice the : at the end.  This gives `scp` the clue that it needs to help you login and copy the file.  If you call scp without the : at the end, scp will copy your `caii.tar` into a file named `youruser@cluster.earlham.edu`!
+  2. you can now move that archive whereever you want... You can even email it!  let's move it to the cluster using a secure shell copy. [`scp caii.tar youruser@cluster.earlham.edu:`] Notice the : at the end.  This gives `scp` the clue that it needs to help you login and copy the file.  If you call scp without the : at the end, scp will copy your `caii.tar` into a file named `youruser@cluster.earlham.edu`!
   22. ls -l quick.tar and notice the size of the tarred archive
   23. zip it up!  gzip quick.tar
   24. ls -l quick.tar.gz and notice the size.  (size of files and directories can be measured using the du command)
