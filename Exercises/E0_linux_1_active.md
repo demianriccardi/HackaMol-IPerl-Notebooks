@@ -1,7 +1,7 @@
 # Messing around in the File System from the shell environment: With power comes responsibility. 
 
 ## Exercise Description
-In this exercise you will walk around your directory tree, take in the sights, make some mess, and then clean it up.  We will introduce some ideas to help you organize your computational work. This exercise will help you complete the git exercise.  With completion of the git exercise, you should be comfortable, "forking this repository into your own GitHub repository, which you can then edit these files directly and contribute to these exercises!" 
+In the previous exercise, you passively interacted with files and directories in your File System. In this exercise you will create files and directories; we will simulate computational work carried out using the terminal, work that needs to be organized and saved.  However, you will mostly make some mess and then clean it up.   
 
 ### Assumptions
 The main assumption for this exercise is that you can open a terminal window. When you open a terminal, it loads a shell that provides you a bunch of useful commands for messing around with your file system.  For Chem-452, you will typically do this in two ways:
@@ -12,22 +12,24 @@ The main assumption for this exercise is that you can open a terminal window. Wh
 
 ## List of shell commands you will use in this exercise 
 
-### Basic commands
-* man    | Manual description for command
-* pwd    | path to working directory
-* ls     | list contents
-* cd     | change directory
+### Assumed commands from the first exercise 
+* `pwd`    => path to working directory
+* `cd`     => change directory  
+* `ls`     => list contents
+* `cat`    => dump file(s) contents to screen.  
+* `touch`  => no touching! :) you will use touch to adjust the timestamp on a file.
+* `ssh`    => login to other computers on the network (as long as you have a username and password)! 
+
+### Basic commands 
 * mkdir  | make directory
-* touch  | create an empty file or adjust the timestamp 
 * cp     | copy
 * mv     | move a file can be moved to a new name in the same directory
 * cat    | dump file(s) contents to screen
 * rm     | remove... be careful with this one.
 * tar    | creates archives
 * gzip   | zips files/archived and makes them smaller
-* gunzip |
+* gunzip | unzip the zipped archive
 * scp    | secure copy files between computers!
-* ssh    | login to other computers on the network (as long as you have a username and password)! 
 
 ### Fun stuff
 * echo  | print to standard output
@@ -36,29 +38,37 @@ The main assumption for this exercise is that you can open a terminal window. Wh
 
 ## The exercise
 
-  1. Access the documentation (aka "man pages") for some of the above commands. This is the way to find the details of how each command does. "man" is short for manual. For example, typing 'man man' will display the documentation for the "man" command.   Exit with the "q" key. 
-  2. Where are you on the filesystem by default?  
-  3. Change your directory to the Desktop and compare your filesystem location to the default found in 2.
-  4. List all of the files on the Desktop.  Does to list look similar to that seen if you look at the Desktop with your eyes using the operating system?
-  5. Make a directory named "Foo" on the desktop. Do you see it show up? list the files and directories to see that you have made the directory.  
-  6. Change your directory to the Foo directory and list the contents of the directory.
-  7. Change back to the default directory.
-  8. List the contents of the Desktop directory.
-  9. Make a series of directories on the Desktop:  Foo/Bar/Baz
-  10. Touch the files Foo/foo.txt  Foo/Bar/bar.txt and Foo/Bar/Baz/baz.txt
-  11. remove the baz.txt file and verify that it is gone (rm ~/Desktop/Foo/Bar/Baz/baz.txt)
-  12. remove the Baz directory (rm -r ~/Desktop/Foo/Bar/Baz)
-  13. remove the Foo directory; what happened the Bar directory, foo.txt, and bar.txt?
-  14. repeat 9.  (check out the -p option for the mkdir command) 
-  15. Navigate with a browser to this address: http://www.rcsb.org/pdb/files/2CBA.pdb
-      use curl to dump that file to the screen!
-  16. use curl to dump the file into a file name 2cba.pdb in the ~/Desktop/Foo/Bar/Baz directory (you can use the '>' to redirect output).
-  17. filter (grep) all the lines the C-alpha lines (CA) of the 2cba.pdb using the grep command (grep CA ~/Desktop/Foo/Bar/Baz/2cba.pdb).
-  18. grep all the lines matching both ATOM and HIS by piping a one grep into another grep (grep ATOM ~/Desktop/Foo/Bar/Baz/2cba.pdb | grep HIS)
-  19. Create the files listed bellow by putting the output from the above commands into those files, you can use the '>' redirect here as well  
-    * 2cba\_ca.pdb containing only CA atoms
-    * 2cba\_HIS.pdb containing only Hist atoms 
-  20. grep out the water molecules using the HOH identifier.  cat the files 2cba\_ca.pdb, 2cba\_HIS.pdb, and 2cba\_HOH.pdb into a new file: 2cba\_CA\_HIS\_HOH.pdb
+  1. Change your directory to the Desktop and list all of the files on the Desktop. [`cd Desktop; ls`]  Does the list look similar to that seen if you look at the Desktop with your eyes using the operating system?
+  2. Make a directory named "Foo" on the desktop. [`mkdir Foo`] You should now see Foo on the Desktop. [`pwd; ls | grep Foo` or just `ls`] 
+  3. Remove the Foo directory. [`rm -ir Foo`] The `-r` option allows `rm` to remove directories and anything inside of them. The `-i` option will trigger an inquiry from the shell, `examine files in directory Foo?`. Type `y` and then the `return key`,  and then it will ask, `remove Foo?`. Type `y ` and then the `return key`.  Create another Foo directory and then remove it without the -i [`rm -r Foo`] and now image that the Foo directory had all of your life's work. oops.  Your life's work is gone.  Be careful with `rm`; use `rm -i` until you are more comfortable.
+
+  4. Make a series of directories on the Desktop:  Foo/Bar/Baz  
+  5. Touch the files Foo/foo.txt  Foo/Bar/bar.txt and Foo/Bar/Baz/baz.txt
+  6. use `ls` and the Finder to verify that you have created the expected Directory Tree and contained files.
+  7. remove the baz.txt file and verify that it is gone [`rm Foo/Bar/Baz/baz.txt`]
+  8. remove the Bar directory [`rm -r Foo/Bar`]
+  9. What is in the Foo directory?
+  10. Remove the Foo directory.
+
+Quiz. Repeat 4-10 as quickly as you can.  See if you can get the creation of folders and files on one line.  Then `rm -r Foo` on the other.
+
+## Simulate a project. Create a new directory for work, pull down the 2cba structure and then grep out all the CA, HIS, and Water atoms.
+  1. Create a directory named CAII, which contains a README.md, and a subdirectory named structures. 
+  2. Download the structure of carbonic anhydrase II and save it into the structures directory.  There are many ways to do this.  For example, you may download the file and then move it to the structures directory. 
+    * `curl http://www.rcsb.org/pdb/files/2CBA.pdb > 2cba.pdb`
+    * `mv 2cba.pdb CAII/structures`
+  3. That was your first move!  you can move that file anywhere you want (as long as you have permission).  You can also use mv to rename to the file.  Rename the file 2CBA.pdb.  [`mv CAII/structures/2cba.pdb CAII/structures/2CBA.pdb`] The `mv` command takes two arguments: 1. target file or directory, with appropriate path, 2. destination, with appropriate path.  If the destination: 
+    * leads to an existing directory, the file will be moved there.  
+    * leads to an existing file name, the file will be moved there, thus, overwriting the original file.  I do this all the time.
+    * leads to a file that doesn't exist, the file will be moved there with a name change.
+  4. Now that we have the 2CBA.pdb crystal structure, we don't need to curl it from the internet!  `grep` all the C-alpha ATOMs from the 2cba.pdb to STDOUT. 
+  5. Redirect that STDOUT into a new file: 2cba_ca.pdb.  [`grep " CA " 2CBA.pdb ; grep ATOM > 2cba\_ca.pdb`]
+  6. `grep` all the lines matching both ATOM and HIS, without the CA atoms you grepped above! Display STDOUT first and then redirect to a file. [`grep ATOM ~/Desktop/Foo/Bar/Baz/2cba.pdb | grep HIS | grep -v " CA " > 2cba\_his.pdb`]
+  7. use the `cat` command to combine the two files into a new file `2cba\_ca\_his.pdb`.
+  8. grep out the water molecules using the HOH identifier into a file, and merge that file with the `2cba\_ca_\his.pdb` created in 7.
+
+If this were important work, you would add descriptions to the README file for future reference.  You will learn how to edit files in the vim exercise.  Let's pretend that this directory now has really useful information in it.
+
   21. tar up the directory (tar -cvf quick.tar ~/Desktop/Foo)
   22. ls -l quick.tar and notice the size of the tarred archive
   23. zip it up!  gzip quick.tar
