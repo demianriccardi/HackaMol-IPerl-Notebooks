@@ -20,6 +20,7 @@ In this exercise you will walk around your directory tree and take in the sights
 * `less`   => similar to command `more`, allows you to page through the contents of a file in read-only mode. In contrast to `more`, which allows you to page forward from start to finish, `less` allows you to page back and forth.
 * `cat`    => dump file(s) contents to screen.  whereas `less` gives you a page by page read, `cat` just dumps everything. I am greedy, I often use `cat` and then page in the terminal with the mouse.
 * `env`    => prints your environment!  this information helps you know where all your commands are coming and some other stuff.  Currently not used in this exercise.
+* `alias`  => create new commands for your commandline!
 * `touch`  => no touching! :) you will use touch to adjust the timestamp on a file.
 * `ssh`    => login to other computers on the network (as long as you have a username and password)! 
 
@@ -91,23 +92,24 @@ Hint. you can put wildcards anywhere you want!
 Since I don't know what interesting files you may be looking at, let us pull one from the internet and play with it!  
   4. use `curl` to pull a file (Protein Databank file) from the internet and dump it to the terminal screen: `curl http://www.rcsb.org/pdb/files/2CBA.pdb`
   5. use a web browser to go to the same site and see that it matches.
-
-If this weren't a passive exercise, you could save internet bandwidth by saving the file with the following command: `curl http://www.rcsb.org/pdb/files/2CBA.pdb > 2CBA.pdb`. This would redirect the STDOUT you saw in 4 into a file using the `>` for output redirection. Thus, with the file, you could avoid the "expensive" `curl` by using `cat 2CBA.pdb`... simple as that. 
+  6. use alias to make a command that runs the command in 4. and verify that it works. `alias 2cbacurl="curl http://www.rcsb.org/pdb/files/2CBA.pdb"; 2cbacurl`
+  
+If this weren't a passive exercise, you could save internet bandwidth by saving the file with the following command: `curl http://www.rcsb.org/pdb/files/2CBA.pdb > 2CBA.pdb`. This would redirect the STDOUT you saw in 4 into a file using the `>` for output redirection. Thus, with the file, you could avoid the "expensive" `curl` by using `cat 2CBA.pdb`... simple as that. You will do exactly this in the next exercise.
    
-  6. Filter the output from `curl` to print only lines containing both ATOM and CA: `curl http://www.rcsb.org/pdb/files/2CBA.pdb  | grep "ATOM" | grep "CA"`.  If you had the file, you could `grep` directly, `grep "ATOM" 2CBA.pdb | grep "CA" 2CBA.pdb` 
+  6. Filter the output from your `2cbacurl` alias to print only lines containing CA: `2cbacurl  | grep "CA"`.  If you had the file, you could `grep` directly, `grep "CA" 2CBA.pdb` 
 
+## Exercise using Perl to transform the commandline.
 
-## Exercise in commandline Perl (a dynamic programming language that can be used to transform your commandline)
-Let's now have some similar fun on the commandline using Perl.  
   0. verify that you have the `perl` command in your path. [`perl -v`] this print out the version of `perl` that you have installed.
-  1. create the classic program "Hello world!" program and execute it all without making a file.  The "Hello world!" program prints the string "Hello world!" with a newline (`\n`) to STDOUT.  [`perl -e 'print "Hello world\n"'`] If you haven't written Perl programs before, Congratulations!  You have now written your first Perl program... all on the commandline with no file to show for it.  You'll write another "Hello World!" program in a file in the next exercise. 
-  2. use `perl` to grep out the CA atoms from 2CBA.pdb. [`perl -e 'grep {m/CA/} <>' 2CBA.pdb`] This command runs the Perl interpretor `perl` in execute mode (`-e`) on the stuff that follows:  the program is `'grep {m/CA/} <>'`, which acts on the `2CBA.pdb` file using the `<>` operator. The `<>` operator slurps up the file and passes the file, line by line, to the `grep {m/CA/}` function. Perl has it's own `grep`!  Perl's `grep` is not the same as the one you ran above, but they fill similar roles. 
-  3. The command you ran in 2. generated no output.  How boring.  Let's try it again, but this time we will print to the screen. [`perl -e 'print foreach grep {m/CA/} <>' 2CBA.pdb`] Now, you should see the same output as running `grep CA 2CBA.pdb` using the system `grep`. The `<>` passes the file, line by line, left to the `grep {m/CA/}` that passes all the lines matching CA (`m/CA/`) left to the `foreach` function that passes each of the filtered lines to the `print` function. 
+  1. create the classic program "Hello world!" program and execute it all without making a file.  The "Hello world!" program prints the string "Hello world!" with a newline (`\n`) to STDOUT.  [`perl -e 'print "Hello world\n"'`] If you haven't written Perl programs before, Congratulations!  You have now written and executed your first Perl program... all on the commandline with no file to show for it.  You'll write another "Hello World!" program in a file in the next exercise. 
+  2. use `perl` to grep out the CA atoms from 2CBA.pdb. [`2cbacurl | perl -e 'grep {m/CA/} <>'`] This command runs the Perl interpretor `perl` in execute mode (`-e`) on the stuff that follows:  the program is `'grep {m/CA/} <>'`, which acts on the output of your `2cbacurl` command (now input for the perl program) using the `<>` operator. The `<>` operator slurps up the input (STDOUT or of a file) and passes them, line by line, to the `grep {m/CA/}` function. Perl has it's own `grep`!  Perl's `grep` is not the same as the commandline `grep` you ran above, but they fill similar roles. 
+  3. The command you ran in 2. generated no output.  How boring.  Let's try it again, but this time we will print to the screen. [`2cbacurl | perl -e 'print foreach grep {m/CA/} <>'`] Now, you should see the same output as running `2cbacurl | grep CA 2CBA.pdb` using the system `grep`. The `<>` passes the input, line by line, left to the `grep {m/CA/}` that passes all the lines matching CA (`m/CA/`) left to the `foreach` function that passes each of the filtered lines to the `print` function. 
 
-You may be thinking, "why would I ever want to use `perl` to do this?".  You can do way more within that perl commandline program than you can with grep. For example, the Perl match operator m// is powerful enough that we filter against several different matches in one pass. Furthermore you can chain multiple `grep` functions out to the left.
-  4. Use the Perl `grep` to pull the Zinc atom, all Histidine residues, water molecules, and CA atoms. [`perl -e 'print foreach grep {m/ZN|HIS|HOH|CA/} <>' 2CBA.pdb`] Isn't that nice?  We'll leave it here for now.
+You may be thinking, "why would I ever want to use `perl` to do this?".  You can do way more within that perl commandline program than you can with grep. For example, the Perl match operator m// is powerful enough that we filter against several different matches in one pass. Furthermore you can chain multiple `grep` functions out to the left within the function.
+  4. Use the Perl `grep` to pull the Zinc atom, all Histidine residues, water molecules, and CA atoms. [`2cbacurl | perl -e 'print foreach grep {m/ZN|HIS|HOH|CA/} <>'`] Isn't that nice?  We'll leave it here for now.
 
-  As long as you have a username and password on another accessible machine (e.g. cluster.earlham.edu), you can use a secure shell login to get into that computer!!  
+## Exercise in switching between computers.
+As long as you have a username and password on another accessible machine (e.g. cluster.earlham.edu), you can use a secure shell login to get into that computer!!  
   1. Find your username and password and then login to cluster.earlham.edu from your terminal: `ssh username@cluster.earlham.edu` 
   2. Use `ls` and `cd` to walk around the File System on this machine; you should notice that it is different... it is a different computer!! There will likely be a different name on your commandline to remind you that this is a different computer. 
   3. Use a web-browser to log into the [Earlham JupyterHub] (https://jupyter.cluster.earlham.edu).  Use the "new" button toward the upper right to open a terminal.  You now have a terminal through the JupyterHub!  Are you on the same computer as you logged in via step 1? ... (hint. NO!).
