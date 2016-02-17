@@ -79,7 +79,7 @@ Quiz.
 
 Hint. you can put wildcards anywhere you want!
 
-### Exercise: Passive interaction with information contained on the File System and other file systems. `[cat, less, curl, grep, sed, and ssh]`
+### Exercise: Passive interaction with information contained on the File System and other file systems. `[cat, less, curl, grep, perl, and ssh]`
   1. use `ls` to find a file that you would like to investigate. [`ls some.file`] where some.file is any old file you see.
   2. press the up arrow and convert `ls some.file` to `less some.file` to open it.
   3. press q to escape, and then dump the same file with `cat some.file`.
