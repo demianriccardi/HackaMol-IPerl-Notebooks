@@ -64,7 +64,6 @@ Create a new directory for work, pull down the 2cba structure, and then use grep
   6. `grep` all the lines matching both ATOM and HIS, without the CA atoms you grepped above! Display STDOUT first and then redirect to a file. [`grep ATOM ~/Desktop/Foo/Bar/Baz/2cba.pdb | grep HIS | grep -v " CA " > 2cba\_his.pdb`]
   7. use the `cat` command to combine the two files into a new file `2cba\_ca\_his.pdb`.
   8. grep out the water molecules using the HOH identifier into a file, and merge that file with the `2cba\_ca_\his.pdb` created in 7.
-  9. perl
 
 ## Exercise. Create an archive and transfer it to another computer! 
 
