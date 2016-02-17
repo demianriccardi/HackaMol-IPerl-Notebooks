@@ -71,7 +71,7 @@ Create a new directory for work, pull down the 2cba structure, and then use grep
 
   1. use `perl` to create the same `2cba_ca_his_zn_hoh.pdb` file, but with a new name, `p5-2cba_ca_his_zn_hoh.pdb`. [`perl -e ' print foreach grep {m/CA|HIS|ZN|HOH/} grep {m/^ATOM|^HETATM/} <>' 2CBA.pdb > p5-2cba_ca_his_zn_hoh.pdb`].  The first `grep` function filters for lines beginning (the `^` character signifies "begins with" in matching expression) with ATOM or HETATM and send them to the left; the second grep filters the lines for the atoms we want. 
   2. Use `less` to page through the file. [`less p5-2cba_ca_his_zn_hoh.pdb`]
-  3. It will look different than that generated above because the order of lines is maintained.  Do you understand why?
+  3. It will look different than that generated above because the order of lines is maintained.  How convenient!! Do you understand why the order is maintained?
 
 ## Exercise. Create an archive and transfer it to another computer!  [not finished]
 
