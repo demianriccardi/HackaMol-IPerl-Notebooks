@@ -7,17 +7,8 @@ In this exercise you will walk around your directory tree and take in the sights
   3. are able to navigate the filesystem with ease.
   4. are able to navigate the filesystem of multiple computers using secure shell login (ssh).
   5. are able to interact passively with files and command documentation.
-  
-### Assumptions
-The main assumption for this exercise is that you can open a terminal window. When you open a terminal, it loads a shell 
-that provides you a bunch of useful commands for messing around with your file system.  For Chem-452, you will typically 
-do this in two ways:
 
-  1. on a macbook open the terminal.app, which is in /Applications/Utilities/ directory. You can navigate the finder and 
-  double click the application or you can do a spotlight search (watchglass in the upper right) for "Terminal".
-
-  2. logging into JupyterHub will give you access to a launching window. You can launch a Terminal (or a Notebook) from the 
-  button labled "New" in the upper right. 
+### Assumptions (see README.md) 
 
 ## List of shell commands you will use in this exercise 
 
