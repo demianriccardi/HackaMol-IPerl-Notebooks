@@ -26,11 +26,9 @@ In this exercise you will walk around your directory tree and take in the sights
 ### Some fun commands with STDOUT (standard output)
 * `echo`  => print to standard output
 * `grep`  => filter lines of file to those that match; ex. grep Earlham earlham.txt
-* `sed`   => dump files with substitutions!...  not used in the exercised below.  See if you can use `sed` after one of the `grep` commands below.
 * `curl`  => grabs files from the internet.. no webbrowser needed!
 * piping STDOUT using the vertical bar "|" 
-* some cool perl oneliners that can do grep and sed stuff.
-
+* `perl`  => an entire dynamic programming language for your commandline delights
 
 ### exercise `[man, cd, pwd]`
 
@@ -97,6 +95,17 @@ Since I don't know what interesting files you may be looking at, let us pull one
 If this weren't a passive exercise, you could save internet bandwidth by saving the file with the following command: `curl http://www.rcsb.org/pdb/files/2CBA.pdb > 2CBA.pdb`. This would redirect the STDOUT you saw in 4 into a file using the `>` for output redirection. Thus, with the file, you could avoid the "expensive" `curl` by using `cat 2CBA.pdb`... simple as that. 
    
   6. Filter the output from `curl` to print only lines containing both ATOM and CA: `curl http://www.rcsb.org/pdb/files/2CBA.pdb  | grep "ATOM" | grep "CA"`.  If you had the file, you could `grep` directly, `grep "ATOM" 2CBA.pdb | grep "CA" 2CBA.pdb` 
+
+
+## Exercise in commandline Perl (a dynamic programming language that can be used to transform your commandline)
+Let's now have some similar fun on the commandline using Perl.  
+  0. verify that you have the `perl` command in your path. [`perl -v`] this print out the version of `perl` that you have installed.
+  1. create the classic program "Hello world!" program and execute it all without making a file.  The "Hello world!" program prints the string "Hello world!" with a newline (`\n`) to STDOUT.  [`perl -e 'print "Hello world\n"'`] If you haven't written Perl programs before, Congratulations!  You have now written your first Perl program... all on the commandline with no file to show for it.  You'll write another "Hello World!" program in a file in the next exercise. 
+  2. use `perl` to grep out the CA atoms from 2CBA.pdb. [`perl -e 'grep {m/CA/} <>' 2CBA.pdb`] This command runs the Perl interpretor `perl` in execute mode (`-e`) on the stuff that follows:  the program is `'grep {m/CA/} <>'`, which acts on the `2CBA.pdb` file using the `<>` operator. The `<>` operator slurps up the file and passes the file, line by line, to the `grep {m/CA/}` function. Perl has it's own `grep`!  Perl's `grep` is not the same as the one you ran above, but they fill similar roles. 
+  3. The command you ran in 2. generated no output.  How boring.  Let's try it again, but this time we will print to the screen. [`perl -e 'print foreach grep {m/CA/} <>' 2CBA.pdb`] Now, you should see the same output as running `grep CA 2CBA.pdb` using the system `grep`. The `<>` passes the file, line by line, left to the `grep {m/CA/}` that passes all the lines matching CA (`m/CA/`) left to the `foreach` function that passes each of the filtered lines to the `print` function. 
+
+You may be thinking, "why would I ever want to use `perl` to do this?".  You can do way more within that perl commandline program than you can with grep. For example, the Perl match operator m// is powerful enough that we filter against several different matches in one pass. Furthermore you can chain multiple `grep` functions out to the left.
+  4. Use the Perl `grep` to pull the Zinc atom, all Histidine residues, water molecules, and CA atoms. [`perl -e 'print foreach grep {m/ZN|HIS|HOH|CA/} <>' 2CBA.pdb`] Isn't that nice?  We'll leave it here for now.
 
   As long as you have a username and password on another accessible machine (e.g. cluster.earlham.edu), you can use a secure shell login to get into that computer!!  
   1. Find your username and password and then login to cluster.earlham.edu from your terminal: `ssh username@cluster.earlham.edu` 
