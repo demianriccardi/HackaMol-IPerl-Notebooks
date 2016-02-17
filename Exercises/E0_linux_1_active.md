@@ -1,14 +1,9 @@
 # Messing around in the File System from the shell environment: With power comes responsibility. 
 
 ## Exercise Description
-In the previous exercise, you passively interacted with files and directories in your File System. In this exercise you will create files and directories; we will simulate computational work carried out using the terminal, work that needs to be organized and saved.  However, you will mostly make some mess and then clean it up.   
+In the previous exercise, you passively interacted with files and directories in your File System. In this exercise you will create files and directories; we will simulate computational work carried out using the terminal, work that needs to be organized, saved, and often transferred between computers.  
 
-### Assumptions
-The main assumption for this exercise is that you can open a terminal window. When you open a terminal, it loads a shell that provides you a bunch of useful commands for messing around with your file system.  For Chem-452, you will typically do this in two ways:
-
-  1. on a macbook open the terminal.app, which is in /Applications/Utilities/ directory. You can navigate the finder and double click the application or you can do a spotlight search (watchglass in the upper right) for "Terminal".
-
-  2. logging into JupyterHub will give you access to a launching window. You can launch a Terminal (or a Notebook) from the button labled "New" in the upper right. 
+### Assumptions (see README.md)
 
 ## List of shell commands you will use in this exercise 
 
