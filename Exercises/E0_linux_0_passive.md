@@ -53,7 +53,7 @@ Suggested step-by-step:
      * `cd /`
      * `cd -`
      
-Wach time you carried out the above commands, you were able to display the path to the working directory with `pwd`.  You should now be comfortable with `cd`, `pwd`, and you should have some instinct to what the "path" is.  "Your path" is the your location in the file system; a file's "path" is the location of the file on the filesystem.  For example, the path to the Terminal.app on OS X is `/Applications/Utilities/Terminal.app`.   
+Each time you carried out the above commands, you were able to display the path to the working directory with `pwd`.  You should now be comfortable with `cd`, `pwd`, and you should have some instinct to what the "path" is.  "Your path" is the your location in the file system; a file's "path" is the location of the file on the filesystem.  For example, the path to the Terminal.app on OS X is `/Applications/Utilities/Terminal.app`.   
 
 Quiz. You can chain two commands together on the commandline using the semicolon as a separator. For example `cd ; cd Desktop; cd ..`, will take you to your home directory, then hop you into the Desktop directory, and then back again into your home directory.  Predict the result of pwd for the following commands:  
   * `cd; cd . ; cd .. ; cd .. ; cd -` 
