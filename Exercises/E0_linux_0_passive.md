@@ -31,8 +31,9 @@ In this exercise you will walk around your directory tree and take in the sights
 * piping STDOUT using the vertical bar "|" 
 * `perl`  => an entire dynamic programming language for your commandline delights
 
-### exercise `[man, cd, pwd]`
+### Exercise.  Use the commands `[man, cd, pwd]` to explore the commands in your path and to navigate your file system.
 
+Suggested step-by-step: 
   1. Open a terminal window and determine the path to your working directory.  [`pwd`]
   2. Access the documentation (a.k.a. "man pages") for some of the above commands. This is the way to find the details of how each command does. "man" is short for manual. For example, typing `man man` will display the documentation for the "man" command.   Exit documentation with the "q" key. 
   3. Change your working directory to the Desktop and compare your filesystem location to the default found in 1. [`cd Desktop ; pwd`]
@@ -57,8 +58,11 @@ Wach time you carried out the above commands, you were able to display the path 
 Quiz. You can chain two commands together on the commandline using the semicolon as a separator. For example `cd ; cd Desktop; cd ..`, will take you to your home directory, then hop you into the Desktop directory, and then back again into your home directory.  Predict the result of pwd for the following commands:  
   * `cd; cd . ; cd .. ; cd .. ; cd -` 
   * `cd ~/..`  
+Now do them and see if the results are expected.
 
-### Exercise `["the tab key", ls, and "wildcards *"]`
+### Exercise. Add the `ls` command to improve your file system activities.  As you navigate your system and list files and directories, make heave use of `["the tab key", ls, and "wildcards *"]`.
+
+Suggested step-by-step: 
   1. Open a new terminal window and display the contents of your home directory. [`ls`]
   2. The Tab key autocompletes with items in the your path.  Play around with hitting the tab key:
       * Hitting tab twice on an empty commandline will give you the option of seeing a schmorgesborg of commands.  In this schmorgesborg are the commands that you are using here [e.g. `ls cd pwd .. etc` ].  It should ask to type y or n.  Typing y will allow you to scroll through the commands using the `more` command.
@@ -80,7 +84,10 @@ Quiz.
 
 Hint. you can put wildcards anywhere you want!
 
-### Exercise: Passive interaction with information contained on the File System and other file systems. `[cat, less, curl, grep, perl, and ssh]`
+## Passive interaction with information contained on the File System and other file systems.
+### Exercise: Use `less` and `cat` to investigate the contents of files on your system. `[cat, less]`
+
+Suggested step-by-step.
   1. use `ls` to find a file that you would like to investigate. [`ls some.file`] where some.file is any old file you see.
   2. press the up arrow and convert `ls some.file` to `less some.file` to open it.
   3. press q to escape, and then dump the same file with `cat some.file`.
@@ -89,17 +96,20 @@ Hint. you can put wildcards anywhere you want!
   6. use `ls -l some.file` to get more information on the file.
   7. wait 1 minute and the touch the file again, `touch some.file`.  Use `ls -l` and note the change.
 
-Since I don't know what interesting files you may be looking at, let us pull one from the internet and play with it!  
-  4. use `curl` to pull a file (Protein Databank file) from the internet and dump it to the terminal screen: `curl http://www.rcsb.org/pdb/files/2CBA.pdb`
-  5. use a web browser to go to the same site and see that it matches.
-  6. use alias to make a command that runs the command in 4. and verify that it works. `alias 2cbacurl="curl http://www.rcsb.org/pdb/files/2CBA.pdb"; 2cbacurl`
+Exercise. Since I don't know what interesting files you may be looking at, let us pull one from the internet and play with it!  Use `curl` display the 2CBA protein databank file on STDOUT.  Next, pipe that STDOUT into a series of `grep` commands to select the `CA`, `HIS`, `ZN` and `HOH` atoms.  `[curl, grep, perl, and ssh]`
+
+Suggested step-by-step
+  1. use `curl` to pull a file (Protein Databank file) from the internet and dump it to the terminal screen: `curl http://www.rcsb.org/pdb/files/2CBA.pdb`
+  2. use a web browser to go to the same site and see that it matches.
+  3. use alias to make a command that runs the command in 4. and verify that it works. `alias 2cbacurl="curl http://www.rcsb.org/pdb/files/2CBA.pdb"; 2cbacurl`
   
 If this weren't a passive exercise, you could save internet bandwidth by saving the file with the following command: `curl http://www.rcsb.org/pdb/files/2CBA.pdb > 2CBA.pdb`. This would redirect the STDOUT you saw in 4 into a file using the `>` for output redirection. Thus, with the file, you could avoid the "expensive" `curl` by using `cat 2CBA.pdb`... simple as that. You will do exactly this in the next exercise.
    
-  6. Filter the output from your `2cbacurl` alias to print only lines containing CA: `2cbacurl  | grep "CA"`.  If you had the file, you could `grep` directly, `grep "CA" 2CBA.pdb` 
+  4. Filter the output from your `2cbacurl` alias to print only lines containing CA: `2cbacurl  | grep "CA"`.  If you had the file, you could `grep` directly, `grep "CA" 2CBA.pdb` 
 
-## Exercise using Perl to transform the commandline.
+## Exercise. Repeat the last exercise, but use commandline `perl` in place of `grep`.  `[curl, perl -e]`
 
+Suggested step-by-step
   0. verify that you have the `perl` command in your path. [`perl -v`] this print out the version of `perl` that you have installed.
   1. create the classic program "Hello world!" program and execute it all without making a file.  The "Hello world!" program prints the string "Hello world!" with a newline (`\n`) to STDOUT.  [`perl -e 'print "Hello world\n"'`] If you haven't written Perl programs before, Congratulations!  You have now written and executed your first Perl program... all on the commandline with no file to show for it.  You'll write another "Hello World!" program in a file in the next exercise. 
   2. use `perl` to grep out the CA atoms from 2CBA.pdb. [`2cbacurl | perl -e 'grep {m/CA/} <>'`] This command runs the Perl interpretor `perl` in execute mode (`-e`) on the stuff that follows:  the program is `'grep {m/CA/} <>'`, which acts on the output of your `2cbacurl` command (now input for the perl program) using the `<>` operator. The `<>` operator slurps up the input (which can be passed as a file) and passes them, line by line, to the `grep {m/CA/}` function. Perl has it's own `grep`!  Perl's `grep` is not the same as the commandline `grep` you ran above, but they fill similar roles. 
@@ -108,7 +118,9 @@ If this weren't a passive exercise, you could save internet bandwidth by saving 
 You may be thinking, "why would I ever want to use `perl` to do this?".  You can do way more within that perl commandline program than you can with grep. For example, the Perl match operator `m//` is powerful enough that we filter against several different matches in one pass (with "regular expressions" that we will not cover here). Furthermore you can chain multiple `grep` functions out to the left within the function.
   4. Use the Perl `grep` to pull the Zinc atom, all Histidine residues, water molecules, and CA atoms. [`2cbacurl | perl -e 'print foreach grep {m/ZN|HIS|HOH|CA/} <>'`] Isn't that nice?  We'll leave the commandline here for now.
 
-## Exercise in switching between computers.
+## Exercise. Use `ssh` to log into another computer, on which you have an account. Use your knowledge from above to look around on this nonlocal computer. `[ssh]`
+
+Suggested step-by-step:
 As long as you have a username and password on another accessible machine (e.g. cluster.earlham.edu), you can use a secure shell login to get into that computer!!  
   1. Find your username and password and then login to cluster.earlham.edu from your terminal: `ssh username@cluster.earlham.edu` 
   2. Use `ls` and `cd` to walk around the File System on this machine; you should notice that it is different... it is a different computer!! There will likely be a different name on your commandline to remind you that this is a different computer. In fact, you may see a different version of Perl!  `perl -v`
