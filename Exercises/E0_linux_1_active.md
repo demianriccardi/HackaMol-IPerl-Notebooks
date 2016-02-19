@@ -78,25 +78,18 @@ Create a new directory for work, pull down the 2cba structure, and then use grep
 If this were important work, you would add descriptions to the README file for future reference.  You will learn how to edit files in the vim exercise.  Let's pretend that this directory now has really useful information in it.
 
   1. use `tar` to create an archive [`tar -cvf caii.tar CAII`]  the `-c` option is for compress, `-v` is for visualize, and `-f` is for force.  
-  2. you can now move that archive whereever you want... You can even email it!  let's move it to the cluster using a secure shell copy. [`scp caii.tar youruser@cluster.earlham.edu:`] Notice the : at the end.  This gives `scp` the clue that it needs to help you login and copy the file.  If you call scp without the : at the end, scp will copy your `caii.tar` into a file named `youruser@cluster.earlham.edu`!
-  22. ls -l caii.tar and notice the size of the tarred archive
-  23. zip it up!  gzip caii.tar
-  24. ls -l caii.tar.gz and notice the size.  (size of files and directories can be measured using the du command, `du -sh caii.tar.gz`)
-  25. secure copy the caii.tar.gz scp quick.tar.gz your\_username@cluster.earlham.edu:
-  26. cp quick.tar.gz back.gz
-  27. rm quick.tar.gz
-  27. ls quick.tar.gz
-  28. scp your\_username@cluster.earlham.edu:quick.tar.gz .
-  29. remove the ~/Desktop/Foo directory
-  30. tar -xvf quick.tar
-  31. find the path to the VMD 1.9.2 application 
-  32. /Applications/VMD\ 1.9.2.app/Contents/vmd/vmd\_MACOSXX86 Desktop/Foo/Bar/Baz/2cba\_CA\_HIS\_HOH.pdb
-  33. rm -r ~/Desktop/Foo
-  34. rm quick.tar
-  35. rm back.gz
-  36. Have you cleaned up everything?
-  37. use the history command to dump all the shell history to screen.  Save if you want.
-  
-## BEEF TIPS... 
-  1. using the up arrow will allow you to scroll up through the history at the command line.  This is useful if you want to rerun a command.
-  2. use the tab button to autocomplete 
+  2. you can now move that archive where ever you want... You can even email it!  let's move it to the cluster using a secure shell copy. [`scp caii.tar youruser@cluster.earlham.edu:`] Notice the : at the end.  This gives `scp` the clue that it needs to help you login and copy the file.  If you call scp without the : at the end, scp will copy your `caii.tar` into a file named `youruser@cluster.earlham.edu`!
+  3. scp the archive again, but with a new name. [`scp caii.tar youruser@cluster.earlham.edu:newname.tar`] Thus, scp acts very much like copy. In addition to copying across the filesystem using paths, it can do so across different computers, still with paths.
+  4. use the `-l` option of `ls` to look at the size of `caii.tar`. [`ls -l caii.tar`] 
+  5. let's compress it to something smaller.  [`gzip caii.tar`]  use ls -l again to see the size.  It should be smaller. `gzip` will speed up your transfers using `scp` because, as you know, smaller files are transferred faster.
+  6. Use scp to transfer the zipped directory to the cluster. [`scp caii.tar.gz youruser@cluster.earlham.edu:`]
+  7. rename your CAII directory using `mv`. [`mv CAII CAII_backup`] use ls to see that you have no `CAII` directory.  
+  8. remove the caii.tar.gz and verify that it is gone. [`rm caii.tar.gz ; ls -l caii.tar.gz`] 
+  9. Ahh... now your working directory should now have only the CAII_backup directory.  Use scp to copy the zipped archive from the cluster back into your working directory and use tar to expand the archive. 1. [`scp youruser@cluster.earlham.edu:caii.tar.gz .` ] Where that final dot says "copy to my current working directory". 2. [`tar -xvf caii.tar.gz`]  
+
+If you can verify that the directory that you have expanded contains all the same information as the CAII_backup, you are done!
+
+## Exercise Clean-up!
+  1. use `ls` and `rm` to remove every file that you have created in this exercise.  You don't need to save any of it.  You should be able to recreate all of it very quickly as your skills improve.
+  2. use `ssh` to log on to the cluster and clean up your files there as well.  Optionally, you can create a directory on the cluster where you can save the `history` output from this exercise. [`history > 2016_02-18_history.txt ; gzip 2016_02-18_history.txt; scp 2016_02-18_history.txt.gz youruser@cluster.earlham.edu: `]  clearly, the `history` on your local machine is different than that on the cluster.
+
