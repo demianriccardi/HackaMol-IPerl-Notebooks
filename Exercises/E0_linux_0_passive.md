@@ -31,7 +31,7 @@ In this exercise you will walk around your directory tree and take in the sights
 * piping STDOUT using the vertical bar "|" 
 * `perl`  => an entire dynamic programming language for your commandline delights
 
-### Exercise 1.  Use the commands `[man, cd, pwd]` to explore the commands in your path and to navigate your file system.
+#### Exercise 1.  Use the commands `[man, cd, pwd]` to explore the commands in your path and to navigate your file system.
 
 Suggested step-by-step: 
   1. Open a terminal window and determine the path to your working directory.  [`pwd`]
@@ -60,7 +60,7 @@ Quiz. You can chain two commands together on the commandline using the semicolon
   * `cd ~/..`  
 Now do them and see if the results are expected.
 
-### Exercise 2. Add the `ls` command to improve your file system activities.  As you navigate your system and list files and directories, make heave use of the <tab> key and wildcards `*`. `[ ls, ls -l *.*]`.
+#### Exercise 2. Add the `ls` command to improve your file system activities.  As you navigate your system and list files and directories, make heave use of the <tab> key and wildcards `*`. `[ ls, ls -l *.*]`.
 
 Suggested step-by-step: 
   1. Open a new terminal window and display the contents of your home directory. [`ls`]
@@ -84,8 +84,8 @@ Quiz.
 
 Hint. you can put wildcards anywhere you want!
 
-## Passive interaction with information contained on the File System and other file systems.
-### Exercise 3: Use `less` and `cat` to investigate the contents of files on your system. `[cat, less]`
+### Passive interaction with information contained on the File System and other file systems.
+#### Exercise 3: Use `less` and `cat` to investigate the contents of files on your system. `[cat, less]`
 
 Suggested step-by-step.
   1. use `ls` to find a file that you would like to investigate. [`ls some.file`] where some.file is any old file you see.
@@ -96,7 +96,7 @@ Suggested step-by-step.
   6. use `ls -l some.file` to get more information on the file.
   7. wait 1 minute and the touch the file again, `touch some.file`.  Use `ls -l` and note the change.
 
-### Exercise 4. Since I don't know what interesting files you may be looking at, let us pull one from the internet and play with it!  Use `curl` display the 2CBA protein databank file on STDOUT.  Next, pipe that STDOUT into a series of `grep` commands to select the `CA`, `HIS`, `ZN` and `HOH` atoms.  `[curl, grep, perl, and ssh]`
+#### Exercise 4. Since I don't know what interesting files you may be looking at, let us pull one from the internet and play with it!  Use `curl` display the 2CBA protein databank file on STDOUT.  Next, pipe that STDOUT into a series of `grep` commands to select the `CA`, `HIS`, `ZN` and `HOH` atoms.  `[curl, grep, perl, and ssh]`
 
 Suggested step-by-step
   1. use `curl` to pull a file (Protein Databank file) from the internet and dump it to the terminal screen: `curl http://www.rcsb.org/pdb/files/2CBA.pdb`
@@ -107,7 +107,7 @@ If this weren't a passive exercise, you could save internet bandwidth by saving 
    
   4. Filter the output from your `2cbacurl` alias to print only lines containing CA: `2cbacurl  | grep "CA"`.  If you had the file, you could `grep` directly, `grep "CA" 2CBA.pdb` 
 
-## Exercise 5. Repeat the last exercise, but use commandline `perl` in place of `grep`.  `[curl, perl -e]`
+### Exercise 5. Repeat the last exercise, but use commandline `perl` in place of `grep`.  `[curl, perl -e]`
 
 Suggested step-by-step
   0. verify that you have the `perl` command in your path. [`perl -v`] this print out the version of `perl` that you have installed.
@@ -118,7 +118,7 @@ Suggested step-by-step
 You may be thinking, "why would I ever want to use `perl` to do this?".  You can do way more within that perl commandline program than you can with grep. For example, the Perl match operator `m//` is powerful enough that we filter against several different matches in one pass (with "regular expressions" that we will not cover here). Furthermore you can chain multiple `grep` functions out to the left within the function.
   4. Use the Perl `grep` to pull the Zinc atom, all Histidine residues, water molecules, and CA atoms. [`2cbacurl | perl -e 'print foreach grep {m/ZN|HIS|HOH|CA/} <>'`] Isn't that nice?  We'll leave the commandline here for now.
 
-### Exercise 6. Use `ssh` to log into another computer, on which you have an account. Use your knowledge from above to look around on this nonlocal computer. `[ssh]`
+#### Exercise 6. Use `ssh` to log into another computer, on which you have an account. Use your knowledge from above to look around on this nonlocal computer. `[ssh]`
 
 Suggested step-by-step:
 As long as you have a username and password on another accessible machine (e.g. cluster.earlham.edu), you can use a secure shell login to get into that computer!!  
