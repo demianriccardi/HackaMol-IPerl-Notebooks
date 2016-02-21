@@ -30,7 +30,7 @@ In the previous exercise, you passively interacted with files and directories in
 * `grep`  | filter lines of file to those that match; ex. grep Earlham earlham.txt
 * `curl`  | grabs files from the internet.. no webbrowser needed!
 
-### Exercise 1.  Make nested directories [`Foo/Bar/Baz`], each with their own files [`foo.txt`, `bar.txt`, `baz.txt`]. 
+#### Exercise 1.  Make nested directories [`Foo/Bar/Baz`], each with their own files [`foo.txt`, `bar.txt`, `baz.txt`]. 
 
   1. Change your directory to the Desktop and list all of the files on the Desktop. [`cd Desktop; ls`]  Does the list look similar to that seen if you look at the Desktop with your eyes using the operating system?
   2. Make a directory named "Foo" on the desktop. [`mkdir Foo`] You should now see Foo on the Desktop. [`pwd; ls | grep Foo` or just `ls`] 
@@ -46,7 +46,7 @@ In the previous exercise, you passively interacted with files and directories in
 
 Quiz. Repeat 4-10 as quickly as you can.  See if you can get the creation of folders and files on one line.  Then `rm -r Foo` on the other.
 
-### Exercise 2.  Simulate a project with folders and files for pdbid: 2CBA.  Use `curl` to write the 2CBA protein databank file to a new file name 2CBA.pdb.  Use `grep` or commandline Perl to select the `CA`, `HIS`, `ZN` and `HOH` atoms into a new file.  `[curl, grep, perl]`
+#### Exercise 2.  Simulate a project with folders and files for pdbid: 2CBA.  Use `curl` to write the 2CBA protein databank file to a new file name 2CBA.pdb.  Use `grep` to select the `CA`, `HIS`, `ZN` and `HOH` atoms into a new file or files.  `[curl, cat, grep]`
 
 Suggested step-by-step:
   1. Create a directory named CAII, which contains a README.md, and a subdirectory named structures. 
@@ -66,13 +66,13 @@ Suggested step-by-step:
   9. use the `cat` command to combine all these files into a new file [`cat 2cba_hoh.pdb 2cba_zn.pdb 2cba_ca.pdb 2cba_his.pdb > 2cba_ca_his_zn_hoh.pdb`]
  10. use `less` to page through the file. [`less 2cba_ca_his_zn_hoh.pdb`]  Notice that the order of atoms corresponds to your `cat`.
 
-## Exercise let's have some fun on the `2CBA.pdb` file with Perl!
+#### Exercise 3. use commandline Perl to carry out the same tasks in Exercise 2 in a more direct way!
 
   1. use `perl` to create the same `2cba_ca_his_zn_hoh.pdb` file, but with a new name, `p5-2cba_ca_his_zn_hoh.pdb`. [`perl -e ' print foreach grep {m/CA|HIS|ZN|HOH/} grep {m/^ATOM|^HETATM/} <>' 2CBA.pdb > p5-2cba_ca_his_zn_hoh.pdb`].  The first `grep` function filters for lines beginning (the `^` character signifies "begins with" in matching expression) with ATOM or HETATM and send them to the left; the second grep filters the lines for the atoms we want. 
   2. Use `less` to page through the file. [`less p5-2cba_ca_his_zn_hoh.pdb`]
   3. It will look different than that generated above because the order of lines is maintained.  How convenient!! Do you understand why the order is maintained?
 
-### Exercise 3. Create an archive from your work in Exercise 2 and transfer it to another computer!If this were important work, you would add descriptions to the README file for future reference.  You will learn how to edit files in the vim exercise.  Let's pretend that this directory now has really useful information in it.
+#### Exercise 4. Create an archive from your work in Exercise 2 and transfer it to another computer! If this were important work, you would add descriptions to the README file for future reference.  You will learn how to edit files in the vim exercise.  Let's pretend that this directory now has really useful information in it.
 
 Suggested step-by-step:
   1. use `tar` to create an archive [`tar -cvf caii.tar CAII`]  the `-c` option is for compress, `-v` is for visualize, and `-f` is for force.  
@@ -87,7 +87,7 @@ Suggested step-by-step:
 
 If you can verify that the directory that you have expanded contains all the same information as the CAII_backup, you are done!
 
-## Exercise 4. Clean-up your mess!
+#### Exercise 4. Clean-up your mess!
 Suggested step-by-step:
   1. use `ls` and `rm` to remove every file that you have created in this exercise.  You don't need to save any of it.  You should be able to recreate all of it very quickly as your skills improve.
   2. use `ssh` to log on to the cluster and clean up your files there as well.  Optionally, you can create a directory on the cluster where you can save the `history` output from this exercise. [`history > 2016_02-18_history.txt ; gzip 2016_02-18_history.txt; scp 2016_02-18_history.txt.gz youruser@cluster.earlham.edu: `]  clearly, the `history` on your local machine is different than that on the cluster.
