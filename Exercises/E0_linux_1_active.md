@@ -72,7 +72,8 @@ Suggested step-by-step:
   2. Use `less` to page through the file. [`less p5-2cba_ca_his_zn_hoh.pdb`]
   3. It will look different than that generated above because the order of lines is maintained.  How convenient!! Do you understand why the order is maintained?
 
-#### Exercise 4. Create an archive from your work in Exercise 2 and transfer it to another computer! If this were important work, you would add descriptions to the README file for future reference.  You will learn how to edit files in the vim exercise.  Let's pretend that this directory now has really useful information in it.
+#### Exercise 4. Create an archive from your work in Exercise 2 and transfer it to another computer! 
+If this were important work, you would add descriptions to the README file for future reference.  You will learn how to edit files in the vim exercise.  Let's pretend that this directory now has really useful information in it.
 
 Suggested step-by-step:
   1. use `tar` to create an archive [`tar -cvf caii.tar CAII`]  the `-c` option is for compress, `-v` is for visualize, and `-f` is for force.  
