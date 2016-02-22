@@ -27,7 +27,7 @@ using a grep command with a wildcard.  [`grep "Earlham is heaven on earth" */*`]
 
 ####Exercise 2. Log into [Earlham's JupyterHub](https://jupyter.cluster.earlham.edu), open a terminal, and clone this repository (the one you are reading) into your home directory.
    1. open a terminal window using the "new" dropdown menu in the upper right of the screen. 
-   2. use git to clone it into your home directory [`git clone https://github.com/demianriccardi/EC-Chem452.git`]
+   2. use git to clone it into your home directory [`git clone https://github.com/demianriccardi/EC-Chem452.git`] you may have to "right click" in order to paste from the clipboard.  It is possible to paste.
    3. look around!
    4. you can now use the JuperHub launch page to load notebooks from the class!
   
