@@ -20,14 +20,18 @@ For example, if you are a grad student working on a hot research topic under the
 Suggested step-by-step:
   1. open a terminal window and run `man git` to check out the man pages.
   2. run `git help -a` to see all the possible commands.  It is a massive list.  Don't be scared.
-  3. make a directory that you will carry your work in.  `mkdir devel_demian` or something like that and the change your working directory to that directory.
-  4. clone this repository, which you are reading right now! `git clone https://github.com/demianriccardi/EC-Chem452.git`
-  5. change your working directory to EC-Chem452 and look around.  Try to find these words: "Earlham is heaven on earth"
-using a grep command with a wildcard.  e.g. `grep "Earlham is heaven on earth" */*`
-  6. you now have your own local version of this repository.  
-  7. change your working directoy back to base of the one you made in 3.  
-   
-####Exercise 2. Now clone the HackaMol repository into the same working directory! 
+  3. clone this repository, which you are reading right now! [`git clone https://github.com/demianriccardi/EC-Chem452.git`]
+  4. change your working directory to EC-Chem452 and look around.  Try to find these words: "Earlham is heaven on earth"
+using a grep command with a wildcard.  [`grep "Earlham is heaven on earth" */*`]
+  5. you now have your own local version of this repository.  
+
+####Exercise 2. Log into [Earlham's JupyterHub](https://jupyter.cluster.earlham.edu), open a terminal, and clone this repository (the one you are reading) into your home directory.
+   1. open a terminal window using the "new" dropdown menu in the upper right of the screen. 
+   2. use git to clone it into your home directory [`git clone https://github.com/demianriccardi/EC-Chem452.git`]
+   3. look around!
+   4. you can now use the JuperHub launch page to load notebooks from the class!
+  
+####Optional Exercise 3.  Clone the HackaMol repository into the same working directory! 
 Suggested step-by-step:
   1. [`git clone https://github.com/demianriccardi/HackaMol.git`] and then look around.  There is a directory of examples that you will be able to play with once you have more tools.
 
